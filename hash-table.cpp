@@ -25,7 +25,7 @@ class FNV1a_Hash{
 
         void insertValue(string key){
             this->value = hashingFunc(key);
-            unsigned int index = 0 % TABLE_SIZE_M;
+            unsigned int index = value % TABLE_SIZE_M;
             // handle collision
             while (table[index].second != -1) {
                 index = (index + 1) % TABLE_SIZE_M;
@@ -36,7 +36,7 @@ class FNV1a_Hash{
 
         void getValue(string key){
             this->value = hashingFunc(key);
-            unsigned int index = 0 % TABLE_SIZE_M;
+            unsigned int index = value % TABLE_SIZE_M;
             while (table[index].second != -1 && table[index].first != value) {
                 index = (index + 1) % TABLE_SIZE_M;
             }
