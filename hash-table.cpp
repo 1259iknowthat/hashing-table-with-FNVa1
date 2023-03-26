@@ -40,8 +40,8 @@ class FNV1a_Hash{
             while (table[index].second != -1 && table[index].first != value) {
                 index = (index + 1) % TABLE_SIZE_M;
             }
-            value = table[index].first;
-            if (value <= 0) {
+            int sign = table[index].second;
+            if (sign < 0) {
                 puts("Key not found!");
             } else {
                 printf("Hash value: %u\n", this->value);
